@@ -1,0 +1,8 @@
+backend/
+data/
+docker-compose.yml
+Dockerfile.*
+nginx.conf
+.env.example
+.git
+.gitignore
