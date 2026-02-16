@@ -1,6 +1,14 @@
 import axios from 'axios';
 
+// Get API URL from environment, with fallback for development
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080/api';
+
+// Check if we're in production without a proper API URL
+if (import.meta.env.PROD && !import.meta.env.VITE_API_URL) {
+  console.error(
+    'ERROR: Backend API URL not configured. Set VITE_API_URL environment variable in Vercel dashboard.',
+  );
+}
 
 const apiClient = axios.create({
   baseURL: API_BASE_URL,
